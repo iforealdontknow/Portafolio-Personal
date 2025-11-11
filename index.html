@@ -13,6 +13,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
         <style>
     :root{
+              --fuente-principal: 'Georgia', serif;
        --Flower: #FDF9F0;
        --verde-principal: #2E8B57;
   --verde-suave: #d0ddd9;
@@ -24,7 +25,10 @@
         font-family: 'Montserrat'; 
     }
 
- body, header,nav{ background: linear-gradient(180deg,var(--Flower), #fff); }
+ body{ background: linear-gradient(180deg,var(--Flower), #fff);
+font-family: var(--fuente-principal);
+
+}
  /* header{ background: linear-gradient(180deg,var(--Flower), #fff); }
 nav{ background: linear-gradient(180deg,var(--Flower), #fff); } */
   </style>
@@ -34,19 +38,19 @@ nav{ background: linear-gradient(180deg,var(--Flower), #fff); } */
 
 
     <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container">        
             <a href="contactos.html" class="navbar-brand  text-dark text-start" >Fernando Ponce</a>
-            <a href="#" class="navbar-brand  text-dark text-end">about</a>
+            <a href="fernando.html" class="navbar-brand  text-dark text-end">about</a>
             
     </nav>
 
     <!-- Header -->
      <!-- Header -->
-<header class="text-center py-5" style="background-color: var(--fondo-claro);">
+<header class="text-center py-5" >
   <div class="container">
     <!-- Imagen centrada -->
-    <img src="https://picsum.photos/200" 
+    <img src="img/1714169892505.jpg" 
          alt="Foto de perfil" 
          class="rounded-circle shadow mb-4" 
          style="width: 160px; height: 160px; object-fit: cover;">
@@ -76,7 +80,20 @@ nav{ background: linear-gradient(180deg,var(--Flower), #fff); } */
             <h2 class="text-center mb-4">Proyectos</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="https://picsum.photos/id/1081/600/400" alt="">
+                    <img class="img-fluid rounded shadow" src="img/screen.jpg.png" alt="">
+                </div>
+                
+                <div class="col-md-6 d-flex flex-column  align-items-center">
+                    <h2>Tour Virtual Unicah</h2>
+                    <p>Usando los conocimientos aprendidos en la clase de desarrollo, desarrollamos un tour virtual de el campus de la facultad en unity  </p>
+                </div>
+            </div>
+        </section>
+         <section class="mb-5" >
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-fluid rounded shadow" src="img/computador.jpg.png" alt="">
                 </div>
                 <div class="col-md-6 d-flex align-items-center">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vero porro soluta excepturi assumenda mollitia, molestias nostrum, repudiandae modi deleniti, recusandae explicabo a pariatur error atque cupiditate similique dolorum illo.</p>
@@ -87,18 +104,7 @@ nav{ background: linear-gradient(180deg,var(--Flower), #fff); } */
             
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="https://picsum.photos/id/1081/600/400" alt="">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vero porro soluta excepturi assumenda mollitia, molestias nostrum, repudiandae modi deleniti, recusandae explicabo a pariatur error atque cupiditate similique dolorum illo.</p>
-                </div>
-            </div>
-        </section>
-         <section class="mb-5" >
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="https://picsum.photos/id/1081/600/400" alt="">
+                    <img class="img-fluid rounded shadow" src="img/holow.jpg" alt="">
                 </div>
                 <div class="col-md-6 d-flex align-items-center">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vero porro soluta excepturi assumenda mollitia, molestias nostrum, repudiandae modi deleniti, recusandae explicabo a pariatur error atque cupiditate similique dolorum illo.</p>
@@ -122,6 +128,7 @@ nav{ background: linear-gradient(180deg,var(--Flower), #fff); } */
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
