@@ -1,131 +1,228 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <title>Title</title>
-   
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fernando Ponce | Portafolio</title>
 
-    
-     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-        <style>
-    :root{
-              --fuente-principal: 'Georgia', serif;
-       --Flower: #FDF9F0;
-       --verde-principal: #2E8B57;
-  --verde-suave: #d0ddd9;
-  --fondo-claro: #F5F5F5;
-  --texto-principal: #333333;
-  --acento-dorado: #C0A060;
-    }
-    a{
-        font-family: 'Montserrat'; 
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
+  <style>
+    :root {
+      --color-fondo: #d7e3e1;
+      --color-texto: #1a1a1a;
+      --color-acento: #2E8B57;
+      --fuente-principal: 'Georgia', serif;
     }
 
- body{ background: linear-gradient(180deg,var(--Flower), #fff);
-font-family: var(--fuente-principal);
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: var(--fuente-principal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-}
- 
+    nav .navbar-brand,
+    nav .nav-link {
+      color: var(--color-texto) !important;
+      font-weight: 600;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .skill-box {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 2rem 0;
+      margin-top: auto;
+      text-align: center;
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar px-4 py-3">
+    <div class="container-fluid d-flex justify-content-between">
+      <a class="navbar-brand" href="fernando.html">FERNANDO PONCE</a>
+      <a class="nav-link" href="#contacto">CONTACTO</a>
+    </div>
+  </nav>
 
-    <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-        <div class="container">        
-            <a href="#" class="navbar-brand  text-dark text-start" >Fernando Ponce</a>
-            <a href="fernando.html" class="navbar-brand  text-dark text-end">about</a>
-            
-    </nav>
-
-   
-<header class="text-center py-5" >
-  <div class="container">
-    
-    <img src="img/1714169892505.jpg" 
-         alt="Foto de perfil" 
-         class="rounded-circle shadow mb-4" 
-         style="width: 160px; height: 160px; object-fit: cover;">
-
-    
-    <h1 class="fw-bold" style="color: var(--verde-principal);">
-      Bienvenido a mi portafolio
-    </h1>
-
-    
-    <p class="lead mt-3" style="color: var(--texto-principal);">
-      Aquí podrás conocer mis habilidades, proyectos y la experiencia que me define como profesional.
+  <!-- Presentación personal -->
+  <header>
+    <img src="img/1714169892505.jpg" alt="Foto de Fernando">
+    <h1 class="fw-bold" style="color: var(--color-acento);">Hola, soy Fernando Ponce</h1>
+    <p class="lead">
+      Estudiante de Ingeniería Informática y Director Creativo en <strong>Fernando Productions</strong>.  
+      Me apasiona el desarrollo de software, la realidad virtual y el diseño de experiencias interactivas.
     </p>
+    <p><strong>Meta profesional:</strong> Convertirme en un desarrollador full-stack especializado en VR y UX.</p>
+  </header>
 
- 
-    <a href="#" class="btn mt-3" 
-       style="background-color: var(--verde-principal); color: white; border-radius: 8px; padding: 10px 25px;">
-       Ver mis proyectos
-    </a>
-  </div>
-</header>
+  <!-- Habilidades -->
+  <section id="habilidades">
+    <h2 class="text-center mb-4">Habilidades</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Técnicas</h4>
 
+        <div class="skill-box">HTML, CSS y JavaScript (Intermedio)</div>
+        <div class="skill-box">Unity + C# (Realidad Virtual)</div>
+        <div class="skill-box">Bases de Datos MySQL / SQLite</div>
+        <div class="skill-box">Arduino (Sensores y automatización)</div>
+        <div class="skill-box">Python (Automatización y GUI con Tkinter)</div>
+      </div>
 
-     
-      <main class="container my-5" >
-        <section class="mb-5" >
-            <h2 class="text-center mb-4">Proyectos</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="img/screen.jpg.png" alt="">
-                </div>
-                
-                <div class="col-md-6 d-flex flex-column  align-items-center">
-                    <h2>Tour Virtual Unicah</h2>
-                    <p>Usando los conocimientos aprendidos en la clase de desarrollo, desarrollamos un tour virtual de el campus de la facultad en unity  </p>
-                </div>
-            </div>
-        </section>
-         <section class="mb-5" >
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="img/computador.jpg.png" alt="">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vero porro soluta excepturi assumenda mollitia, molestias nostrum, repudiandae modi deleniti, recusandae explicabo a pariatur error atque cupiditate similique dolorum illo.</p>
-                </div>
-            </div>
-        </section>
-         <section class="mb-5" >
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow" src="img/holow.jpg" alt="">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vero porro soluta excepturi assumenda mollitia, molestias nostrum, repudiandae modi deleniti, recusandae explicabo a pariatur error atque cupiditate similique dolorum illo.</p>
-                </div>
-            </div>
-        </section>
-        
-      </main>
+      <div class="col-md-6">
+        <h4>Blandas</h4>
 
-      <!-- Footer -->
-      <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p class="mb-1">&copy; 2025 MiSitio. Todos los derechos reservados</p>
-            <a class="text-white me-3" href="#">Privacidad</a>
-            <a class="text-white" href="#">Términos</a>
+        <div class="skill-box">Comunicación efectiva</div>
+        <div class="skill-box">Creatividad</div>
+        <div class="skill-box">Aprendizaje autónomo</div>
+        <div class="skill-box">Trabajo en equipo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" style="background: #f2f2f2;">
+    <h2 class="text-center mb-5">Proyectos</h2>
+
+    <!-- Proyecto 1 -->
+    <div class="project-card container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/screen.png" class="img-fluid rounded shadow" alt="">
         </div>
-        
-      </footer>
+        <div class="col-md-6">
+          <h3>Tour Virtual UNICAH</h3>
+          <p><strong>Descripción:</strong> Tour interactivo del campus hecho en Unity.</p>
+          <p><strong>Problema:</strong> Crear una herramienta moderna para mostrar el campus a nuevos estudiantes.</p>
+          <p><strong>Tecnologías:</strong> Unity, C#, Oculus Quest 3, Meta XR SDK.</p>
+          <p><strong>Mejoras futuras:</strong> Añadir audio-guías y un menú 3D más avanzado.</p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Proyecto 2 -->
+    <div class="project-card container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/computador.jpg.png" class="img-fluid rounded shadow" alt="">
+        </div>
+        <div class="col-md-6">
+          <h3>Sistema de Formularios en Unity</h3>
+          <p><strong>Descripción:</strong> App con 7 escenas para manejar usuarios y equipos con SQLite.</p>
+          <p><strong>Problema:</strong> Crear un sistema funcional con base de datos para gestionar información.</p>
+          <p><strong>Tecnologías:</strong> Unity, C#, SQLite.</p>
+          <p><strong>Mejoras futuras:</strong> Validaciones avanzadas y sistema de login.</p>
+        </div>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <h2 class="text-center mb-5">Servicios</h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Desarrollo Web</h5>
+            <p>Creación de páginas modernas y responsivas con HTML, CSS, JS y Bootstrap.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Realidad Virtual</h5>
+            <p>Tours virtuales, escenas 3D y experiencias inmersivas en Unity.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Diseño UI/UX</h5>
+            <p>Interfaces limpias, intuitivas y enfocadas en el usuario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contacto" style="background: #f2f2f2;">
+    <h2 class="text-center mb-4">Contacto</h2>
+
+    <div class="container" style="max-width: 600px;">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+        </div>
+
+        <button class="btn" style="background: var(--color-acento); color: white; padding: 10px 20px;">Enviar</button>
+      </form>
+    </div>
+
+    <div class="text-center mt-4">
+      💼 GitHub: <a href="#" target="_blank">github.com/fernando</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Fernando Ponce – Todos los derechos reservados</p>
+  </footer>
 
 </body>
 
