@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ── GRAIN OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +43,7 @@
       opacity: 0.2;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -77,7 +76,7 @@
     }
     .nav-links a:hover { color: var(--green); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -170,7 +169,6 @@
     }
     .btn-outline:hover { border-color: var(--green); color: var(--green); }
 
-    /* Hero photo side */
     .hero-photo-side {
       display: flex;
       flex-direction: column;
@@ -230,8 +228,6 @@
       gap: 0.5rem;
     }
 
-    .photo-placeholder span { font-size: 2rem; }
-
     .status-pill {
       display: flex;
       align-items: center;
@@ -257,7 +253,7 @@
       50% { opacity: 0.3; }
     }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { position: relative; z-index: 1; }
 
     .section-inner {
@@ -288,7 +284,7 @@
       margin: 0;
     }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -323,7 +319,7 @@
       margin-top: 2px;
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .projects-list { display: flex; flex-direction: column; gap: 0; }
 
     .project-item {
@@ -359,6 +355,47 @@
       max-width: 560px;
     }
 
+    /* IMAGEN DEL PROYECTO */
+    .project-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .project-item:hover .project-img {
+      opacity: 0.9;
+    }
+
+    /* Placeholder si no hay imagen aún */
+    .project-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
+
+    .project-img-placeholder svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0.35;
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -384,7 +421,7 @@
 
     .project-item:hover .project-arrow { color: var(--green); transform: translateX(4px); }
 
-    /* ── EXPERIENCE ── */
+    /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; gap: 0; }
 
     .exp-item {
@@ -431,7 +468,7 @@
       line-height: 1.75;
     }
 
-    /* ── SERVICES ── */
+    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -464,7 +501,7 @@
       line-height: 1.75;
     }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -535,7 +572,7 @@
     .form-group input:focus,
     .form-group textarea:focus { border-color: var(--green); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 6rem;
@@ -550,7 +587,7 @@
       background: var(--bg2);
     }
 
-    /* ── ANIMATIONS ── */
+    /* ANIMATIONS */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
@@ -562,7 +599,7 @@
       transform: translateY(0);
     }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.25rem; }
@@ -623,10 +660,8 @@
     <div class="hero-photo-side">
       <div class="photo-frame">
         <div class="photo-placeholder">
-          <img src="img/1714169892505.jpg" alt="Fernando Ponce"> 
+          <img src="img/1714169892505.jpg" alt="Fernando Ponce">
         </div>
-        <!-- Cuando tengas la foto disponible, reemplaza el div anterior con:
-        <img src="img/1714169892505.jpg" alt="Fernando Ponce"> -->
       </div>
       <div class="status-pill">
         <span class="status-dot"></span>
@@ -650,35 +685,30 @@
           <div class="skill-item">PHP, Bootstrap, LESS</div>
           <div class="skill-item">Gestión de dominios – DigitalOcean, Namecheap</div>
         </div>
-
         <div class="skill-category fade-up">
           <h4>Software & IA</h4>
           <div class="skill-item">Python – Automatización y GUI con Tkinter</div>
           <div class="skill-item">Android Studio, .NET MAUI, Laravel</div>
           <div class="skill-item">Integración de IA en apps móviles y escritorio</div>
         </div>
-
         <div class="skill-category fade-up">
           <h4>Realidad Virtual</h4>
           <div class="skill-item">Unity + C# para entornos interactivos</div>
           <div class="skill-item">Meta Quest 3 – Oculus, Meta XR SDK</div>
           <div class="skill-item">Diseño de escenas y entornos 3D</div>
         </div>
-
         <div class="skill-category fade-up">
           <h4>Bases de Datos</h4>
           <div class="skill-item">SQL Server, MySQL Workbench, XAMPP</div>
           <div class="skill-item">SQLite – integrado en Unity</div>
           <div class="skill-item">Consultas SQL y diseño relacional</div>
         </div>
-
         <div class="skill-category fade-up">
           <h4>Redes & Infra</h4>
           <div class="skill-item">Configuración de Routers y Switches</div>
           <div class="skill-item">Gestión de direcciones IP</div>
           <div class="skill-item">Arduino – Sensores y automatización</div>
         </div>
-
         <div class="skill-category fade-up">
           <h4>Habilidades Blandas</h4>
           <div class="skill-item">Comunicación efectiva (Español + Inglés avanzado)</div>
@@ -699,9 +729,16 @@
 
       <div class="projects-list">
 
+        <!-- PROYECTO 01 -->
         <div class="project-item fade-up">
           <div class="project-num">01</div>
           <div class="project-info">
+            <!--
+              INSTRUCCIONES:
+              Reemplaza el bloque "project-img-placeholder" por una etiqueta <img> cuando tengas la imagen:
+              <img src="img/tour-virtual.jpg" alt="Tour Virtual UNICAH" class="project-img">
+            -->
+           <img src="img/villa.png" alt="Tour Virtual UNICAH" class="project-img">
             <h3>Tour Virtual UNICAH</h3>
             <p>Tour interactivo del campus universitario desarrollado en Unity para Meta Quest 3. Permite a nuevos estudiantes explorar las instalaciones de forma inmersiva antes de su primer día.</p>
             <div class="project-tags">
@@ -715,9 +752,15 @@
           <div class="project-arrow">→</div>
         </div>
 
+        <!-- PROYECTO 02 -->
         <div class="project-item fade-up">
           <div class="project-num">02</div>
           <div class="project-info">
+            <!--
+              Reemplaza con:
+              <img src="img/sistema-formularios.jpg" alt="Sistema de Formularios en Unity" class="project-img">
+            -->
+            <img src="img/screen.png" alt="Tour Virtual UNICAH" class="project-img">
             <h3>Sistema de Formularios en Unity</h3>
             <p>Aplicación de 7 escenas para gestión de usuarios y equipos con base de datos SQLite integrada. Diseñada con una interfaz 3D clara orientada a flujos de trabajo internos.</p>
             <div class="project-tags">
@@ -730,10 +773,15 @@
           <div class="project-arrow">→</div>
         </div>
 
+        <!-- PROYECTO 03 -->
         <div class="project-item fade-up">
           <div class="project-num">03</div>
           <div class="project-info">
-            <h3>Portafolio Personal</h3>
+            
+              <img src="img/agricultura.png" alt="Portafolio Personal" class="project-img">
+            
+            
+            <h3>Creacion de pagina web para Agroinsdustrias Espinoza</h3>
             <p>Sitio web personal diseñado y desarrollado desde cero. Diseño responsivo con enfoque editorial y tipografía cuidada. El que estás viendo ahora mismo.</p>
             <div class="project-tags">
               <span class="tag">HTML5</span>
@@ -758,7 +806,6 @@
       <h2 class="section-title fade-up">Experiencia &<br>Educación</h2>
 
       <div class="exp-list">
-
         <div class="exp-item fade-up">
           <div class="exp-meta">
             <strong>Actual</strong>
@@ -806,7 +853,6 @@
             <p>Graduado con enfoque bilingüe. Base sólida en ciencias y humanidades.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -869,7 +915,7 @@
           </div>
         </div>
 
-        <form class="contact-form fade-up" onsubmit="return false;">
+        <form class="contact-form" onsubmit="return false;">
           <div class="form-group">
             <label>Nombre</label>
             <input type="text" placeholder="Tu nombre completo">
@@ -894,7 +940,6 @@
   </footer>
 
   <script>
-    // Fade-up on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
