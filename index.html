@@ -3,909 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fernando Ponce | Ingeniero Informático</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Fernando Ponce | Portafolio</title>
 
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
   <style>
     :root {
-      --bg: #d7e3e1;
-      --bg2: #c8d8d5;
-      --green: #2E8B57;
-      --green-dim: #3aaa6e;
-      --cream: #1a1a1a;
-      --muted: #4a5e58;
-      --border: rgba(46,139,87,0.2);
-      --serif: 'DM Serif Display', serif;
-      --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
+      --color-fondo: #d7e3e1;
+      --color-texto: #1a1a1a;
+      --color-acento: #2E8B57;
+      --fuente-principal: 'Georgia', serif;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--cream);
-      font-family: var(--sans);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── GRAIN OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.2;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 3rem;
-      background: rgba(215,227,225,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--green); }
-
-    /* ── HERO ── */
-    .hero {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: var(--fuente-principal);
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 0 6rem;
-      gap: 4rem;
-      position: relative;
-    }
-
-    .hero-grid-line {
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 1px;
-      background: var(--border);
-      left: 50%;
-    }
-
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--green);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .hero-tag::before {
-      content: '';
-      width: 40px; height: 1px;
-      background: var(--green);
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-      color: var(--cream);
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--green);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: #0e100f;
-      padding: 0.75rem 1.75rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: #86efac; transform: translateY(-2px); }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--cream);
-      padding: 0.75rem 1.75rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-      display: inline-block;
-    }
-    .btn-outline:hover { border-color: var(--green); color: var(--green); }
-
-    /* Hero photo side */
-    .hero-photo-side {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 2rem;
     }
 
-    .photo-frame {
-      position: relative;
-      width: 300px;
-      height: 360px;
+    nav .navbar-brand,
+    nav .nav-link {
+      color: var(--color-texto) !important;
+      font-weight: 600;
     }
 
-    .photo-frame::before {
-      content: '';
-      position: absolute;
-      inset: -12px;
-      border: 1px solid var(--border);
-      z-index: 0;
-    }
-
-    .photo-frame::after {
-      content: '';
-      position: absolute;
-      bottom: -20px; right: -20px;
-      width: 100px; height: 100px;
-      background: var(--green);
-      opacity: 0.08;
-      z-index: 0;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(20%);
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background: var(--bg2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+    header {
       text-align: center;
-      gap: 0.5rem;
+      padding: 4rem 1rem;
     }
 
-    .photo-placeholder span { font-size: 2rem; }
-
-    .status-pill {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: white;
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--green);
-      letter-spacing: 0.06em;
-    }
-
-    .status-dot {
-      width: 7px; height: 7px;
-      background: var(--green);
+    header img {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      animation: pulse 2s infinite;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    section {
+      padding: 4rem 2rem;
     }
 
-    /* ── SECTIONS ── */
-    section { position: relative; z-index: 1; }
-
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--green);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-bottom: 3rem;
-      line-height: 1.1;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0;
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-category h4 {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--green);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .skill-box {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       margin-bottom: 1rem;
     }
 
-    .skill-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.92rem;
-      color: #2a3e38;
-    }
-
-    .skill-item::before {
-      content: '→';
-      color: var(--green);
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ── PROJECTS ── */
-    .projects-list { display: flex; flex-direction: column; gap: 0; }
-
-    .project-item {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      align-items: start;
-      gap: 2rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-    }
-
-    .project-num {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      padding-top: 0.25rem;
-    }
-
-    .project-info h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      transition: color 0.2s;
-    }
-
-    .project-item:hover .project-info h3 { color: var(--green); }
-
-    .project-info p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      letter-spacing: 0.06em;
-    }
-
-    .project-arrow {
-      font-size: 1.25rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .project-item:hover .project-arrow { color: var(--green); transform: translateX(4px); }
-
-    /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; gap: 0; }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .exp-meta {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .exp-meta strong {
-      display: block;
-      color: var(--green);
-      margin-bottom: 0.25rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .exp-content h3 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .exp-content .company {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--green);
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.08em;
-    }
-
-    .exp-content p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .service-box {
-      background: var(--bg);
-      padding: 2.5rem 2rem;
-      transition: background 0.2s;
-    }
-
-    .service-box:hover { background: white; }
-
-    .service-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .service-box h4 {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .service-box p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .contact-info h3 {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-info p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.8;
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
     }
 
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-    }
-
-    .contact-detail-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--green);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      width: 70px;
-      flex-shrink: 0;
-    }
-
-    .contact-detail a { color: var(--cream); text-decoration: none; }
-    .contact-detail a:hover { color: var(--green); }
-
-    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
-    .form-group label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 0.85rem 1rem;
-      color: var(--cream);
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      outline: none;
-      resize: vertical;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus { border-color: var(--green); }
-
-    /* ── FOOTER ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 6rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
-      background: var(--bg2);
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 7rem 2rem 4rem;
-        gap: 3rem;
-        text-align: center;
-      }
-
-      .hero-grid-line { display: none; }
-      .hero-desc { margin: 0 auto 2rem; }
-      .hero-cta { justify-content: center; }
-      .hero-tag { justify-content: center; }
-      .hero-photo-side { order: -1; }
-      .photo-frame { width: 220px; height: 270px; }
-
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .project-item { grid-template-columns: 50px 1fr auto; gap: 1rem; }
-
-      footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem 2rem; text-align: center; }
+      background: #333;
+      color: white;
+      padding: 2rem 0;
+      margin-top: auto;
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-brand" href="#">FP_</a>
-    <ul class="nav-links">
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
+  
+  <nav class="navbar px-4 py-3">
+    <div class="container-fluid d-flex justify-content-between">
+      <a class="navbar-brand" href="fernando.html">FERNANDO PONCE</a>
+      <a class="nav-link" href="#contacto">CONTACTO</a>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid-line"></div>
+  
+  <header>
+    <img src="img/1714169892505.jpg" alt="Foto de Fernando">
+    <h1 class="fw-bold" style="color: var(--color-acento);">Hola, soy Fernando Ponce</h1>
+    <p class="lead">
+      Estudiante de Ingeniería Informática y Director Creativo en <strong>Fernando Productions</strong>.  
+      Me apasiona el desarrollo de software, la realidad virtual y el diseño de experiencias interactivas.
+    </p>
+    <p><strong>Meta profesional:</strong> Convertirme en un desarrollador full-stack especializado en VR y UX.</p>
+  </header>
 
-    <div class="hero-text">
-      <div class="hero-tag">Ingeniero Informático · La Ceiba, Honduras</div>
-      <h1>Fernando<br><em>Ponce</em></h1>
-      <p class="hero-desc">
-        Estudiante de 4to año en Ciencias de la Computación en UNICAH. Especializado en desarrollo de software, realidad virtual y diseño de experiencias interactivas. Director Creativo en <strong>Fernando Productions</strong>.
-      </p>
-      <div class="hero-cta">
-        <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
-        <a href="#contacto" class="btn-outline">Contactar</a>
-      </div>
-    </div>
 
-    <div class="hero-photo-side">
-      <div class="photo-frame">
-        <div class="photo-placeholder">
-          <img src="img/1714169892505.jpg" alt="Fernando Ponce"> 
-        </div>
-        <!-- Cuando tengas la foto disponible, reemplaza el div anterior con:
-        <img src="img/1714169892505.jpg" alt="Fernando Ponce"> -->
-      </div>
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        Disponible para proyectos
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- HABILIDADES -->
   <section id="habilidades">
-    <div class="section-inner">
-      <div class="section-label fade-up">Experticia</div>
-      <h2 class="section-title fade-up">Habilidades &<br>Tecnologías</h2>
+    <h2 class="text-center mb-4">Habilidades</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Técnicas</h4>
 
-      <div class="skills-grid">
-        <div class="skill-category fade-up">
-          <h4>Desarrollo Web</h4>
-          <div class="skill-item">HTML5, CSS3 y JavaScript (Intermedio)</div>
-          <div class="skill-item">PHP, Bootstrap, LESS</div>
-          <div class="skill-item">Gestión de dominios – DigitalOcean, Namecheap</div>
-        </div>
+        <div class="skill-box">HTML, CSS y JavaScript (Intermedio)</div>
+        <div class="skill-box">Unity + C# (Realidad Virtual)</div>
+        <div class="skill-box">Bases de Datos MySQL / SQLite</div>
+        <div class="skill-box">Arduino (Sensores y automatización)</div>
+        <div class="skill-box">Python (Automatización y GUI con Tkinter)</div>
+      </div>
 
-        <div class="skill-category fade-up">
-          <h4>Software & IA</h4>
-          <div class="skill-item">Python – Automatización y GUI con Tkinter</div>
-          <div class="skill-item">Android Studio, .NET MAUI, Laravel</div>
-          <div class="skill-item">Integración de IA en apps móviles y escritorio</div>
-        </div>
+      <div class="col-md-6">
+        <h4>Blandas</h4>
 
-        <div class="skill-category fade-up">
-          <h4>Realidad Virtual</h4>
-          <div class="skill-item">Unity + C# para entornos interactivos</div>
-          <div class="skill-item">Meta Quest 3 – Oculus, Meta XR SDK</div>
-          <div class="skill-item">Diseño de escenas y entornos 3D</div>
-        </div>
-
-        <div class="skill-category fade-up">
-          <h4>Bases de Datos</h4>
-          <div class="skill-item">SQL Server, MySQL Workbench, XAMPP</div>
-          <div class="skill-item">SQLite – integrado en Unity</div>
-          <div class="skill-item">Consultas SQL y diseño relacional</div>
-        </div>
-
-        <div class="skill-category fade-up">
-          <h4>Redes & Infra</h4>
-          <div class="skill-item">Configuración de Routers y Switches</div>
-          <div class="skill-item">Gestión de direcciones IP</div>
-          <div class="skill-item">Arduino – Sensores y automatización</div>
-        </div>
-
-        <div class="skill-category fade-up">
-          <h4>Habilidades Blandas</h4>
-          <div class="skill-item">Comunicación efectiva (Español + Inglés avanzado)</div>
-          <div class="skill-item">Interpretación médica y servicio al cliente</div>
-          <div class="skill-item">Aprendizaje autónomo y trabajo en equipo</div>
-        </div>
+        <div class="skill-box">Comunicación efectiva</div>
+        <div class="skill-box">Creatividad</div>
+        <div class="skill-box">Aprendizaje autónomo</div>
+        <div class="skill-box">Trabajo en equipo</div>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <section id="proyectos" style="background: #f2f2f2;">
+    <h2 class="text-center mb-5">Proyectos</h2>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <div class="section-inner">
-      <div class="section-label fade-up">Portafolio</div>
-      <h2 class="section-title fade-up">Proyectos<br>Destacados</h2>
-
-      <div class="projects-list">
-
-        <div class="project-item fade-up">
-          <div class="project-num">01</div>
-          <div class="project-info">
-            <h3>Tour Virtual UNICAH</h3>
-            <p>Tour interactivo del campus universitario desarrollado en Unity para Meta Quest 3. Permite a nuevos estudiantes explorar las instalaciones de forma inmersiva antes de su primer día.</p>
-            <div class="project-tags">
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
-              <span class="tag">Oculus Quest 3</span>
-              <span class="tag">Meta XR SDK</span>
-              <span class="tag">VR</span>
-            </div>
-          </div>
-          <div class="project-arrow">→</div>
+    <div class="project-card container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/villa.png" class="img-fluid rounded shadow" alt="">
         </div>
-
-        <div class="project-item fade-up">
-          <div class="project-num">02</div>
-          <div class="project-info">
-            <h3>Sistema de Formularios en Unity</h3>
-            <p>Aplicación de 7 escenas para gestión de usuarios y equipos con base de datos SQLite integrada. Diseñada con una interfaz 3D clara orientada a flujos de trabajo internos.</p>
-            <div class="project-tags">
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">UI/UX</span>
-            </div>
-          </div>
-          <div class="project-arrow">→</div>
+        <div class="col-md-6">
+          <h3>Tour Virtual UNICAH</h3>
+          <p><strong>Descripción:</strong> Tour interactivo del campus hecho en Unity.</p>
+          <p><strong>Problema:</strong> Crear una herramienta moderna para mostrar el campus a nuevos estudiantes.</p>
+          <p><strong>Tecnologías:</strong> Unity, C#, Oculus Quest 3, Meta XR SDK.</p>
+          <p><strong>Mejoras futuras:</strong> Añadir audio-guías y un menú 3D más avanzado.</p>
         </div>
-
-        <div class="project-item fade-up">
-          <div class="project-num">03</div>
-          <div class="project-info">
-            <h3>Portafolio Personal</h3>
-            <p>Sitio web personal diseñado y desarrollado desde cero. Diseño responsivo con enfoque editorial y tipografía cuidada. El que estás viendo ahora mismo.</p>
-            <div class="project-tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Diseño UI</span>
-            </div>
-          </div>
-          <div class="project-arrow">→</div>
-        </div>
-
       </div>
     </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- EXPERIENCIA -->
-  <section id="experiencia" style="background: var(--bg2);">
-    <div class="section-inner">
-      <div class="section-label fade-up">Trayectoria</div>
-      <h2 class="section-title fade-up">Experiencia &<br>Educación</h2>
-
-      <div class="exp-list">
-
-        <div class="exp-item fade-up">
-          <div class="exp-meta">
-            <strong>Actual</strong>
-            Dic 2024 – Presente
-          </div>
-          <div class="exp-content">
-            <h3>Intérprete Médico</h3>
-            <div class="company">PROPIO · Freelance</div>
-            <p>Interpretación para médicos, llamadas de emergencias 911 y servicios al cliente en sectores de seguros, automotriz y salud. Nivel de inglés avanzado en entornos de alta presión.</p>
-          </div>
+   
+    <div class="project-card container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/screen.png" class="img-fluid rounded shadow" alt="">
         </div>
-
-        <div class="exp-item fade-up">
-          <div class="exp-meta">
-            <strong>Experiencia</strong>
-            Nov 2021 – Oct 2022
-          </div>
-          <div class="exp-content">
-            <h3>Agente de Ventas – Tecnología</h3>
-            <div class="company">BESTBUY</div>
-            <p>Asesoría especializada a clientes en la compra de productos tecnológicos y electrodomésticos. Identificación de necesidades y recomendación de soluciones personalizadas.</p>
-          </div>
+        <div class="col-md-6">
+          <h3>Sistema de Formularios en Unity</h3>
+          <p><strong>Descripción:</strong> App con 7 escenas para manejar usuarios y equipos con SQLite.</p>
+          <p><strong>Problema:</strong> Crear un sistema funcional con base de datos para gestionar información.</p>
+          <p><strong>Tecnologías:</strong> Unity, C#, SQLite.</p>
+          <p><strong>Mejoras futuras:</strong> Validaciones avanzadas y sistema de login.</p>
         </div>
-
-        <div class="exp-item fade-up">
-          <div class="exp-meta">
-            <strong>Educación</strong>
-            2022 – Presente
-          </div>
-          <div class="exp-content">
-            <h3>Ingeniería en Ciencias de la Computación</h3>
-            <div class="company">UNICAH · Campus San Isidro</div>
-            <p>4to año. Especialización en desarrollo de software, redes, bases de datos y realidad virtual.</p>
-          </div>
-        </div>
-
-        <div class="exp-item fade-up">
-          <div class="exp-meta">
-            <strong>Educación</strong>
-            2021
-          </div>
-          <div class="exp-content">
-            <h3>Bachillerato en Ciencias & Humanidades</h3>
-            <div class="company">THE LIGHTHOUSE CHRISTIAN BILINGUAL SCHOOL</div>
-            <p>Graduado con enfoque bilingüe. Base sólida en ciencias y humanidades.</p>
-          </div>
-        </div>
-
       </div>
     </div>
+
   </section>
 
-  <div class="divider"></div>
-
-  <!-- SERVICIOS -->
   <section id="servicios">
-    <div class="section-inner">
-      <div class="section-label fade-up">Oferta</div>
-      <h2 class="section-title fade-up">Servicios</h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-box fade-up">
-        <div class="service-icon">🌐</div>
-        <h4>Desarrollo Web</h4>
-        <p>Páginas modernas y responsivas con HTML, CSS, JavaScript, PHP y Bootstrap. Desde landing pages hasta sistemas con base de datos.</p>
-      </div>
-      <div class="service-box fade-up">
-        <div class="service-icon">🥽</div>
-        <h4>Realidad Virtual</h4>
-        <p>Tours virtuales, escenas 3D y experiencias inmersivas en Unity para Meta Quest. Desde conceptualización hasta despliegue.</p>
-      </div>
-      <div class="service-box fade-up">
-        <div class="service-icon">📱</div>
-        <h4>Apps Móviles & Escritorio</h4>
-        <p>Desarrollo con Android Studio, .NET MAUI y Python. Integración de IA y automatización de flujos de trabajo.</p>
-      </div>
-    </div>
-  </section>
+    <h2 class="text-center mb-5">Servicios</h2>
 
-  <div class="divider"></div>
-
-  <!-- CONTACTO -->
-  <section id="contacto" style="background: var(--bg2);">
-    <div class="section-inner">
-      <div class="section-label fade-up">¿Hablamos?</div>
-      <h2 class="section-title fade-up">Contacto</h2>
-
-      <div class="contact-grid">
-        <div class="contact-info fade-up">
-          <h3>Trabajemos<br>juntos.</h3>
-          <p>Estoy disponible para proyectos freelance, colaboraciones y oportunidades de prácticas profesionales. No dudes en escribirme.</p>
-
-          <div class="contact-detail">
-            <span class="contact-detail-label">Email</span>
-            <a href="mailto:aguerofernando940@gmail.com">aguerofernando940@gmail.com</a>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-detail-label">Teléfono</span>
-            <a href="tel:+50497308746">(+504) 9730-8746</a>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-detail-label">Ubicación</span>
-            <span>Col. Menonita, La Ceiba, Honduras</span>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-detail-label">Idiomas</span>
-            <span>Español (Nativo) · Inglés (Avanzado)</span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Desarrollo Web</h5>
+            <p>Creación de páginas modernas y responsivas con HTML, CSS, JS y Bootstrap.</p>
           </div>
         </div>
 
-        <form class="contact-form fade-up" onsubmit="return false;">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre completo">
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Realidad Virtual</h5>
+            <p>Tours virtuales, escenas 3D y experiencias inmersivas en Unity.</p>
           </div>
-          <div class="form-group">
-            <label>Correo</label>
-            <input type="email" placeholder="ejemplo@correo.com">
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-box text-center">
+            <h5>Diseño UI/UX</h5>
+            <p>Interfaces limpias, intuitivas y enfocadas en el usuario.</p>
           </div>
-          <div class="form-group">
-            <label>Mensaje</label>
-            <textarea rows="5" placeholder="Cuéntame sobre tu proyecto..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="align-self: flex-start;">Enviar Mensaje</button>
-        </form>
+        </div>
       </div>
     </div>
   </section>
 
+  
+  <section id="contacto" style="background: #f2f2f2;">
+    <h2 class="text-center mb-4">Contacto</h2>
+    <h2 class="text-center mb-4">Numero: 97308746</h2>
+    <h2 class="text-center mb-4">Correo: aguerofernando940@gmail.com</h2>
+    
+
+    <div class="container" style="max-width: 600px;">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+        </div>
+
+        <button class="btn" style="background: var(--color-acento); color: white; padding: 10px 20px;">Enviar</button>
+      </form>
+    </div>
+
+    <div class="text-center mt-4">
+      💼 GitHub: <a href="#" target="_blank">github.com/fernando</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <span>© 2025 Fernando Ponce – Todos los derechos reservados</span>
-    <span>La Ceiba, Honduras · FP_</span>
+    <p>&copy; 2025 Fernando Ponce – Todos los derechos reservados</p>
   </footer>
 
-  <script>
-    // Fade-up on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-          observer.unobserve(el.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
-
 </body>
+
 </html>
