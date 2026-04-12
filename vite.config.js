@@ -16,7 +16,7 @@ function obtenerHtmlFiles() {
 }
 
 export default defineConfig({
-  base: "/portafolio-personal/",
+  base: "/Portafolio-Personal/",
   appType: "mpa",
   build: {
     rollupOptions: {
